@@ -1,14 +1,15 @@
 --liquibase formatted sql
 
---changed elenazmeeva:1
+--changset elenazmeeva:1
 CREATE TABLE label(
    id serial PRIMARY KEY,
    title text NOT NULL
 );
-CREATE TABLE user(
-    id SERIAL PRIMARY KEY,
-    full_name TEXT NOT NULL,
-    email TEXT NOT NULL
+
+CREATE TABLE users(
+    id serial PRIMARY KEY,
+    full_name text NOT NULL,
+    email text NOT NULL
 );
 
 

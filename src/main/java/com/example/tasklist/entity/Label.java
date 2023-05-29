@@ -3,15 +3,16 @@ package com.example.tasklist.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "label")
-@NoArgsConstructor
 @Getter
 @Setter
+@RequiredArgsConstructor
 public class Label {
 
     @Id
@@ -21,4 +22,5 @@ public class Label {
 
     @OneToMany(mappedBy = "label")
     private Set<Task> task;
+
 }
