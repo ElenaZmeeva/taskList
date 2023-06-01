@@ -60,6 +60,7 @@ public class UserServiceTest {
         entity.setEmail(userDto.getEmail());
         service.updateUser(userDto,4L);
         when(repository.save(entity)).thenReturn(entity);
+
 }
 }
 
