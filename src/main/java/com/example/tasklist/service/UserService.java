@@ -34,12 +34,13 @@ public class UserService {
     }
 
     public UserDto getUser(Long id) {
-        User user1=userRepository.findById(id).orElseThrow();
+        User user1=userRepository.findById(id).orElse(null);
         return userMapper.toDto(user1);
     }
 
     public UserDto updateUser(UserDto userDto,Long id){
-        User user1=userRepository.findById(id).orElseThrow();
+        User user1=userRepository.findById(id).orElse(null);
+        assert user1 != null;
         user1.setFullName(userDto.getFullName());
         user1.setEmail(userDto.getEmail());
         userRepository.save(user1);
@@ -47,7 +48,8 @@ public class UserService {
         return userMapper.toDto(user1);
     }
     public void deleteUser(Long id){
-        User user1=userRepository.findById(id).orElseThrow();
+        User user1=userRepository.findById(id).orElse(null);
+        assert user1 != null;
         userRepository.delete(user1);
         logger.info("User deleted");
 }

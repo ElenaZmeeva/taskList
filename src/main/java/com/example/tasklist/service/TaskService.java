@@ -24,7 +24,7 @@ public class TaskService {
     }
 
     public TaskDto getTaskDto(Long id) {
-        Task task1=taskRepository.findById(id).orElseThrow();
+        Task task1=taskRepository.findById(id).orElse(null);
         return taskMapper.toDto(task1);
     }
 
@@ -36,7 +36,8 @@ public class TaskService {
     }
 
     public TaskDto updateTask(TaskDto taskDto, Long id){
-        Task task1=taskRepository.findById(id).orElseThrow();
+        Task task1=taskRepository.findById(id).orElse(null);
+        assert task1 != null;
         task1.setTitle(taskDto.getTitle());
         task1.setDescription(taskDto.getDescription());
         logger.info("Task updated");
